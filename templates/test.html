@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6 no-css3" lang="ru"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7 no-css3" lang="ru"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8 no-css3" lang="ru"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9" lang="ru"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="ru"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Тест</title>
+  <link rel="stylesheet" href="/static/css/apex.min.css?v=4.2.5.00.08" type="text/css" />
+  <link rel="stylesheet" href="/static/css/jquery-ui.min.css" type="text/css" />
+  <link rel="stylesheet" href="/static/css/jstree_style.css" type="text/css" />
+<style type="text/css">/* TREE LAYOUT */ .tree ul { margin:0 0 0 5px; padding:0 0 0 0; list-style-type:none; } .tree li { display:block; min-height:18px; line-height:18px; padding:0 0 0 15px; margin:0 0 0 0; /* Background fix */ clear:both; } .tree li ul { display:none; } .tree li a, .tree li span { display:inline-block;line-height:16px;height:16px;color:black;white-space:nowrap;text-decoration:none;padding:1px 4px 1px 4px;margin:0; } .tree li a:focus { outline: none; } .tree li a input, .tree li span input { margin:0;padding:0 0;display:inline-block;height:12px !important;border:1px solid white;background:white;font-size:10px;font-family:Verdana; } .tree li a input:not([class="xxx"]), .tree li span input:not([class="xxx"]) { padding:1px 0; } /* FOR DOTS */ .tree .ltr li.last { float:left; } .tree > ul li.last { overflow:visible; } /* OPEN OR CLOSE */ .tree li.open ul { display:block; } .tree li.closed ul { display:none !important; } /* FOR DRAGGING */ #jstree-dragged { position:absolute; top:-10px; left:-10px; margin:0; padding:0; } #jstree-dragged ul ul ul { display:none; } #jstree-marker { padding:0; margin:0; line-height:5px; font-size:1px; overflow:hidden; height:5px; position:absolute; left:-45px; top:-30px; z-index:1000; background-color:transparent; background-repeat:no-repeat; display:none; } #jstree-marker.marker { width:45px; background-position:-32px top; } #jstree-marker.marker_plus { width:5px; background-position:right top; } /* BACKGROUND DOTS */ .tree li li { overflow:hidden; } .tree > .ltr > li { display:table; } /* ICONS */ .tree ul ins { display:inline-block; text-decoration:none; width:16px; height:16px; } .tree .ltr ins { margin:0 4px 0 0px; } </style>
+
+
+<style type="text/css">
+span.st_offline {color: white !important;
+    background: #CC2020 !important;
+    padding: 0px 3px !important;
+    font-weight: bold;
+    border: none !important;}
+table#apex_layout_117881229753232742 {margin: auto;}
+table.standardLook td {color: rgb(88, 88, 88);
+font: 12px/12px Arial, sans-serif;}
+.regionlayout {width: 100%;}
+table#report_R187564916876312540 {float: right;margin-top: -8px;}
+
+#uOneCol {clear: both;
+width: 1100px;
+margin: auto;
+position: relative;}
+.hiddens > .uRegionContent {padding: 1px !important;}
+#head {padding: 3px 0px 6px 0px;}
+#map {width: 544px;
+margin: 0;
+padding: 0;
+box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+border: 1px solid #AAA;
+margin: 0 0px 8px 8px;
+overflow: hidden;
+border-radius: 3px 3px 3px 3px; }
+
+[class$=controls__control]  {
+bottom: 8px !important;}
+[class*=copyright] {
+ display: none !important;}
+
+#center_rep {
+ margin-bottom: 12px;
+ }
+table.vertical td.L {
+ text-align: left;
+ padding-right: 23px;
+ width: 37px;
+ padding-top: 3px;
+ color: rgb(88, 88, 88);
+ }
+table.vertical td.R {
+ text-align: left;
+ font-weight: bold;
+ padding-top: 3px;
+ white-space: pre-wrap;}
+
+table.vertical td {
+ font-size: 9pt;
+ padding: 2px 5px 2px 5px;}
+
+
+#report_filesreport {border-top: 1px solid rgb(221, 221, 221);}
+#docs_reg th#COL02 {width: 777px;}
+#filesreport th#COL01 {width: 25px;}
+.loading {padding: 4px;}
+table.uReport thead > tr > th {vertical-align: middle !important;}
+#report_hidden4 th#COL04,#report_hidden4 th#COL06,#report_hidden4 th#COL07,#report_hidden4 th#COL11 {width: 10%;}
+#docs_reg {padding-bottom: 20px;}
+</style>
+<script type="text/javascript">
+var apex_img_dir = "/static/img/", htmldb_Img_Dir = apex_img_dir;
+</script>
+<script src="/static/js/desktop_all.min.js?v=4.2.5.00.08" type="text/javascript"></script>
+<script src="/static/js/legacy.min.js?v=4.2.5.00.08" type="text/javascript"></script>
+<style> html {visibility:hidden;} </style>
+<script type="text/javascript">
+apex.security.framebreaker("S");
+</script>
+<script type="text/javascript">
+var htmldb_delete_message='Would you like to perform this delete action?';
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Expires" content="-1" /><meta http-equiv="Cache-Control" content="no-cache" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/4_171.css?v=2">
+  <script src="/static/js/4_11.js"></script>
+</head>
+<body >
+  <div id="uBodyContainer">
+      <div id="uOneCol">
+   <section class="uRegion  uHideShowRegion clearfix" id="arhive" >
+    <div class="uRegionHeading">
+    <h1>
+      <a href="javascript:void(0)" class="uRegionControl uRegionCollapsed"><img src="/static/img/f_spacer.gif" alt="Hide/Show"/></a>
+      Файловый архив
+    </h1>
+    <span class="uButtonContainer">
+
+    </span>
+  </div>
+  <div class="uRegionContent clearfix" style="display: none">
+  </div>
+</section>
+</div>
+<footer id="uFooter">
+  <div class="uFooterContent">
+    <div id="customize"></div>
+
+    &#x0421;&#x041F;&#x0431; &#x0413;&#x0423;&#x041F; &#xAB;&#x0410;&#x0422;&#x0421; &#x0421;&#x043C;&#x043E;&#x043B;&#x044C;&#x043D;&#x043E;&#x0433;&#x043E;&#xBB;. &#x041F;&#x043E;&#x0434;&#x0434;&#x0435;&#x0440;&#x0436;&#x043A;&#x0430; &#x0438; &#x0440;&#x0430;&#x0437;&#x0432;&#x0438;&#x0442;&#x0438;&#x0435;: &#x0421;&#x043E;&#x0440;&#x043E;&#x043A;&#x0438;&#x043D; &#x0410;.&#x041C;., &#x043A;.&#x0442;. +7(812)5762591
+  </div>
+  <div class="uFooterBG">
+    <div class="uLeft"></div>
+    <div class="uRight"></div>
+  </div>
+</footer>
+<div id="uHiddenItems">
+
+</div>
+</div>
+<input type="hidden" name="p_md5_checksum" value=""  /><input type="hidden" name="p_page_checksum" value="A626BE438C47E68D9A967107016C5E9A" id="pPageChecksum" /></form>
+
+<script type="text/javascript">
+apex.da.initDaEventList = function(){
+apex.da.gEventList = [
+{"triggeringElement":"#hidden .uRegionControl","triggeringElementType":"JQUERY_SELECTOR","bindType":"one","bindEventType":"click",actionList:[{"eventResult":true,"executeOnPageInit":false,"stopExecutionOnError":true,"affectedElementsType":"REGION","affectedRegionId":"filesreport",javascriptFunction:apex.da.refresh,"action":"NATIVE_REFRESH"},{"eventResult":true,"executeOnPageInit":false,"stopExecutionOnError":true,"affectedElementsType":"REGION","affectedRegionId":"docs_reg",javascriptFunction:apex.da.refresh,"action":"NATIVE_REFRESH"}]},
+{"triggeringElement":"#hidden2 .uRegionControl","triggeringElementType":"JQUERY_SELECTOR","bindType":"one","bindEventType":"click",actionList:[{"eventResult":true,"executeOnPageInit":false,"stopExecutionOnError":true,"affectedElementsType":"REGION","affectedRegionId":"hidden2",javascriptFunction:apex.da.refresh,"action":"NATIVE_REFRESH"}]},
+{"triggeringElement":"#hidden3 .uRegionControl","triggeringElementType":"JQUERY_SELECTOR","bindType":"one","bindEventType":"click",actionList:[{"eventResult":true,"executeOnPageInit":false,"stopExecutionOnError":true,"affectedElementsType":"REGION","affectedRegionId":"hidden3",javascriptFunction:apex.da.refresh,"action":"NATIVE_REFRESH"}]},
+{"triggeringElement":"#hidden4 .uRegionControl","triggeringElementType":"JQUERY_SELECTOR","bindType":"one","bindEventType":"click",actionList:[{"eventResult":true,"executeOnPageInit":false,"stopExecutionOnError":true,"affectedElementsType":"REGION","affectedRegionId":"hidden4",javascriptFunction:apex.da.refresh,"action":"NATIVE_REFRESH"}]},
+{"triggeringElement":"#hidden5 .uRegionControl","triggeringElementType":"JQUERY_SELECTOR","bindType":"one","bindEventType":"click",actionList:[{"eventResult":true,"executeOnPageInit":false,"stopExecutionOnError":true,"affectedElementsType":"REGION","affectedRegionId":"hidden5",javascriptFunction:apex.da.refresh,"action":"NATIVE_REFRESH"}]},
+{"triggeringElement":"document","triggeringElementType":"DOM_OBJECT","bindType":"bind","bindEventType":"modalpageautoclose.COM_SKILLBUILDERS_MODAL_PAGE",actionList:[{"eventResult":true,"executeOnPageInit":false,"stopExecutionOnError":true,javascriptFunction:function (){ var p1HiddenVal = $("#MSNCENTRE_ID").val();
+var href = 'f?p=100:7:::NO::ID:'+p1HiddenVal;
+window.location = href;
+},"action":"NATIVE_JAVASCRIPT_CODE"}]},
+{"triggeringElementType":"REGION","triggeringRegionId":"docs_reg","bindType":"one","bindEventType":"apexafterrefresh",actionList:[{"eventResult":true,"executeOnPageInit":false,"stopExecutionOnError":true,"affectedElementsType":"JQUERY_SELECTOR","affectedElements":"#loading_h1",javascriptFunction:apex.da.hide,"attribute01":"N","action":"NATIVE_HIDE"}]},
+{"triggeringElementType":"REGION","triggeringRegionId":"hidden2","bindType":"one","bindEventType":"apexafterrefresh",actionList:[{"eventResult":true,"executeOnPageInit":false,"stopExecutionOnError":true,"affectedElementsType":"JQUERY_SELECTOR","affectedElements":"#loading_h2",javascriptFunction:apex.da.hide,"attribute01":"N","action":"NATIVE_HIDE"}]},
+{"triggeringElementType":"REGION","triggeringRegionId":"hidden3","bindType":"one","bindEventType":"apexafterrefresh",actionList:[{"eventResult":true,"executeOnPageInit":false,"stopExecutionOnError":true,"affectedElementsType":"JQUERY_SELECTOR","affectedElements":"#loading_h3",javascriptFunction:apex.da.hide,"attribute01":"N","action":"NATIVE_HIDE"}]},
+{"triggeringElementType":"REGION","triggeringRegionId":"hidden4","bindType":"one","bindEventType":"apexafterrefresh",actionList:[{"eventResult":true,"executeOnPageInit":false,"stopExecutionOnError":true,"affectedElementsType":"JQUERY_SELECTOR","affectedElements":"#loading_h4",javascriptFunction:apex.da.hide,"attribute01":"N","action":"NATIVE_HIDE"}]},
+{"triggeringElementType":"REGION","triggeringRegionId":"hidden5","bindType":"one","bindEventType":"apexafterrefresh",actionList:[{"eventResult":true,"executeOnPageInit":false,"stopExecutionOnError":true,"affectedElementsType":"JQUERY_SELECTOR","affectedElements":"#loading_h5",javascriptFunction:apex.da.hide,"attribute01":"N","action":"NATIVE_HIDE"}]},
+{"bindEventType":"ready",actionList:[{"eventResult":true,"executeOnPageInit":false,"stopExecutionOnError":true,"waitForResult":true,"affectedElementsType":"ITEM","affectedElements":"P7_HIDE_SHOW",javascriptFunction:apex.da.setValue,"ajaxIdentifier":"A130B4F61692C1EF2C5B9C75A1BCFDEBF06A1586F082648F7EC5FCD81102626F","attribute01":"STATIC_ASSIGNMENT","attribute02":"1","attribute09":"N","action":"NATIVE_SET_VALUE"}]},
+{"bindEventType":"ready",actionList:[{"eventResult":true,"executeOnPageInit":false,"stopExecutionOnError":true,"waitForResult":true,javascriptFunction:apex.da.executePlSqlCode,"ajaxIdentifier":"7E39A74AF58A66FE6C1F80528C0F035960697C15992AF8F85146B19F45209900","attribute01":"#MSNCENTRE_ID","attribute02":"#P7_FOR_ZABBIX","attribute04":"N","action":"NATIVE_EXECUTE_PLSQL_CODE"},{"eventResult":true,"executeOnPageInit":false,"stopExecutionOnError":true,javascriptFunction:function (){ var ids = document.getElementById('P7_FOR_ZABBIX').value.split(",");
+var arrayLength = ids.length;
+
+if (ids[0] != "" ) {
+	var newSpan = document.createElement('span');
+	newSpan.className = "st_offline";
+	newSpan.innerHTML = 'PROBLEM';
+	for (var i = 0; i < arrayLength; i++) {
+		document.getElementById(ids[i]).appendChild(newSpan.cloneNode(true));
+	};
+};
+
+},"action":"NATIVE_JAVASCRIPT_CODE"}]}];
+}
+</script>
+<script type="text/javascript" src="/static/js/widget.report.min.js?v=4.2.5.00.08"></script>
+<script type="text/javascript" src="/static/js/apex.jquery.tree.min.js"></script>
+<script type="text/javascript" src="/static/js/widget.tree.min.js?v=4.2.5.00.08"></script>
+<script type="text/javascript">
+apex.jQuery( document ).ready( function() {
+(function(){apex.widget.report.init("R6560431135495909",{"styleChecked":"#dddddd","internalRegionId":"6560431135495909"});})();
+(function(){apex.widget.report.init("resp_pers",{"styleChecked":"#dddddd","internalRegionId":"23425939429558269"});})();
+(function(){apex.widget.report.init("docs_reg",{"pageItems":"#P7_HIDE_SHOW,#MSNCENTRE_ID","styleMouseOver":"#F0F0F0","styleChecked":"#E8E8E8","internalRegionId":"10234428201648843"});})();
+(function(){apex.widget.report.init("filesreport",{"pageItems":"#P7_HIDE_SHOW,#MSNCENTRE_ID","styleMouseOver":"#F0F0F0","styleChecked":"#E8E8E8","internalRegionId":"10343403593957411"});})();
+{#(function(){apex.widget.tree.init("tree23345453248098232", apex.widget.tree.cTreeTypes, l23345453248098232Data,"default","196621163","S","");})();#}
+(function(){apex.da.initDaEventList();})();
+(function(){apex.da.init();})();
+$("div.tree >ul>li:not(.leaf), div.tree >ul>li>ul>li:not(.leaf)").addClass('open').removeClass('closed');
+$("div#map").height($("#center").height());
+});
+</script>
+<script src="/static/js/stormtree.js"></script>
+<input type="hidden" name="p_t06" id="MSNCENTRE_ID" value="196619500">
+</body>
+</html>
