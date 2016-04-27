@@ -288,7 +288,7 @@ def search(query):
                             if item_document not in ['count', 'title']:
                                 card_documents.append({
                                     'data': {
-                                        'title': result[build_item]['cards'][item_type][item_year][item_document]['title'],
+                                        'title': result[build_item]['cards'][item_type][item_year][item_document]['titlcd sp    e'],
                                         'icon': '/static/img/icons.png',
                                         'attributes': {
                                             'href': '#',
