@@ -6,6 +6,7 @@ from flask import Flask, jsonify, render_template
 
 class StormConnect():
     def __init__(self, *args, **kwargs):
+        self.storm_is_load = False
         self.serverUrl = 'http://192.168.168.33:8080'
         self.login = 'portal'
         self.password = 'portal123'
@@ -35,6 +36,7 @@ class StormConnect():
         dictionaries = dataService.getTypedObjectChilds(dictionaryRoot.objectId, childrenTypes, 0, 65535, sort)
         for dictionary in dictionaries:
             self.dictionaries[dictionary.objectId] = dictionary.name
+        self.storm_is_load = True
 
     def authenticate(self):
         self.session = self.services['auth'].login(self.login, self.password, self.requisite)
@@ -100,13 +102,13 @@ class CustomFlask(Flask):
     def __init__(self, import_name, static_path=None, static_url_path=None,
                  static_folder='static', template_folder='templates',
                  instance_path=None, instance_relative_config=False):
-        self.storm = None
+        stormConnect = StormConnect()
+        self.storm = stormConnect.__enter__()
         super(CustomFlask, self).__init__(import_name, static_path, static_url_path, static_folder, template_folder, instance_path, instance_relative_config)
 
-    def run(self, host=None, port=None, debug=None, **options):
-        with StormConnect() as stormConnect:
-            self.storm = stormConnect
-            super(CustomFlask, self).run(host, port, debug, **options)
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if self.storm:
+            self.storm.__exit__(exc_type, exc_val, exc_tb)
 
 app = CustomFlask(__name__, static_url_path='/static')
 
