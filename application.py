@@ -288,7 +288,7 @@ def search(query):
                             if item_document not in ['count', 'title']:
                                 card_documents.append({
                                     'data': {
-                                        'title': result[build_item]['cards'][item_type][item_year][item_document]['titlcd sp    e'],
+                                        'title': result[build_item]['cards'][item_type][item_year][item_document]['title'],
                                         'icon': '/static/img/icons.png',
                                         'attributes': {
                                             'href': '#',
@@ -325,4 +325,4 @@ def search(query):
 
 # if __name__ == '__main__':
 
-app.run(host='127.0.0.1', port='5000')
+app.run(host='127.0.0.1', port=5000)
