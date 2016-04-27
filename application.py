@@ -253,14 +253,14 @@ def search(query):
 
         except Exception, err:
             print err
-
+    img_icons = '/i/libraries/jquery-jstree/0.9.9a2/themes/default/icons.png'
     finish_result = []
     for build_item in result:
         card_types = []
         finish_result.append({
             'data': {
                 'title': result[build_item]['title'],
-                'icon': '/static/img/icons.png',
+                'icon': img_icons,
                 'attributes': {}
             },
             'children': card_types
@@ -271,7 +271,7 @@ def search(query):
                 card_types.append({
                     'data': {
                         'title': result[build_item]['cards'][item_type]['title'],
-                        'icon': '/static/img/icons.png',
+                        'icon': img_icons,
                         'attributes': {}
                     },
                     'children': card_years
@@ -282,7 +282,7 @@ def search(query):
                         card_years.append({
                             'data': {
                                 'title': result[build_item]['cards'][item_type][item_year]['title'],
-                                'icon': '/static/img/icons.png',
+                                'icon': img_icons,
                                 'attributes': {}
                             },
                             'children': card_documents
@@ -292,7 +292,7 @@ def search(query):
                                 card_documents.append({
                                     'data': {
                                         'title': result[build_item]['cards'][item_type][item_year][item_document]['title'],
-                                        'icon': '/static/img/icons.png',
+                                        'icon': img_icons,
                                         'attributes': {
                                             'href': '#',
                                             'onclick': "apex.StromTree.click_document('%s'); return false;" % item_document,

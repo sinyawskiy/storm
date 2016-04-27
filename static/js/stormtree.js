@@ -30,7 +30,7 @@ apex.jQuery( document ).ready( function() {
             }).done(function(data){
                 apex.StromTree['opened'] = true;
                 if(data['data'].length){
-                    apex.widget.tree.init(tree_id, apex.widget.tree.cTreeTypes, data['data'], "default", center_id,"S","");
+                    apex.widget.tree.init(tree_id, apex.widget.tree.cTreeTypes, data['data'], "default", center_id, "S","");
                 }else{
                     content_handler.html('<div>В электронном архиве ничего не найдено.</div>');
                 }
