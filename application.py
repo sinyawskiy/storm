@@ -287,33 +287,29 @@ def search(query):
     return jsonify({'data': finish_result})
 
 
-@app.route("/root/")
-def root():
-    structures = app.storm.getService('data').getStructures()
-    result = ''
-    if len(structures) > 0:
-        first = structures[0]
-
-        # Retrieving children
-        sort = SortingField()
-        sort.__setstate__({'name': u'NONE'})
-        childrenTypes = ['com.alee.archive3.api.data.Card']
-        children = app.storm.getService('data').getTypedObjectChilds(first.objectId, childrenTypes, 0, 65535, sort)
-        # print children
-        if len(children)> 0:
-            firstCard = children[0]
-
-            # Retrieving complete card
-            card = app.storm.getService('data').getCompleteCard(firstCard.objectId, True, None)
-            print card
-            result += u'%s' % card
-    return result
-
-@app.route("/children/")
-def children():
-    return "children"
+# @app.route("/root/")
+# def root():
+#     structures = app.storm.getService('data').getStructures()
+#     result = ''
+#     if len(structures) > 0:
+#         first = structures[0]
+#
+#         # Retrieving children
+#         sort = SortingField()
+#         sort.__setstate__({'name': u'NONE'})
+#         childrenTypes = ['com.alee.archive3.api.data.Card']
+#         children = app.storm.getService('data').getTypedObjectChilds(first.objectId, childrenTypes, 0, 65535, sort)
+#         # print children
+#         if len(children)> 0:
+#             firstCard = children[0]
+#
+#             # Retrieving complete card
+#             card = app.storm.getService('data').getCompleteCard(firstCard.objectId, True, None)
+#             print card
+#             result += u'%s' % card
+#     return result
 
 if __name__ == '__main__':
     with StormConnect() as stormConnect:
         app.storm = stormConnect
-        app.run(host='0.0.0.0', port='80')
+        app.run(host='127.0.0.1', port='8000')
