@@ -28,7 +28,13 @@ apex.jQuery( document ).ready( function() {
                 dataType: 'json'
             }).done(function(data){
                 apex.StromTree['opened'] = true;
-                apex.widget.tree.init(tree_id, apex.widget.tree.cTreeTypes, data['data'], "default", center_id,"S","");
+                if(data['data'].length){
+                    apex.widget.tree.init(tree_id, apex.widget.tree.cTreeTypes, data['data'], "default", center_id,"S","");
+                }else{
+                    content_handler.html('<div>В электронном архиве ничего не найдено.</div>');
+                }
+            }).error(function(){
+                content_handler.html('<div>Ошибка!</div>');
             });
         }else{
             apex.StromTree['opened'] = false;
