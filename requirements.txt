@@ -1,3 +1,4 @@
 flask
 six
 gunicorn
+Flask-Cache
