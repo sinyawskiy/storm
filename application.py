@@ -95,8 +95,9 @@ class StormConnect():
         if self.session:
             self.getService('auth').logoff(self.session.id)
 
-
-app = Flask(__name__, static_url_path='/static')
+with StormConnect() as stormConnect:
+    app = Flask(__name__, static_url_path='/static')
+    app.storm = stormConnect
 
 @app.route("/")
 def index():
@@ -310,6 +311,4 @@ def search(query):
 #     return result
 
 if __name__ == '__main__':
-    with StormConnect() as stormConnect:
-        app.storm = stormConnect
-        app.run(host='127.0.0.1', port='8000')
+    app.run(host='127.0.0.1', port='8000')
