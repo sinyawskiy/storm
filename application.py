@@ -3,7 +3,7 @@ import flask
 from service import *
 from data import *
 from flask import Flask, jsonify, render_template
-
+from flask.ext.cache import Cache
 
 class StormConnect():
     def __init__(self, *args, **kwargs):
@@ -112,14 +112,18 @@ class CustomFlask(Flask):
             self.storm.__exit__(exc_type, exc_val, exc_tb)
 
 app = CustomFlask(__name__, static_url_path='/static')
+app.config['CACHE_TYPE'] = 'simple'
+app.cache = Cache(app)
 
 @app.route("/")
+@app.cache.cached(timeout=43200)
 def index():
     response = flask.Response(render_template('test.html'))
     response.headers['Access-Control-Allow-Origin'] = "*"
     return response
 
 @app.route("/search/<query>")
+@app.cache.cached(timeout=43200)
 def search(query):
     dictionaryId = app.storm.get_dictionary_id(u'Площадки')
     cardAttributes = []
