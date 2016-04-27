@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import flask
 from service import *
 from data import *
 from flask import Flask, jsonify, render_template
@@ -114,7 +115,9 @@ app = CustomFlask(__name__, static_url_path='/static')
 
 @app.route("/")
 def index():
-    return render_template('test.html')
+    response = flask.Response(render_template('test.html'))
+    response.headers['Access-Control-Allow-Origin'] = "*"
+    return response
 
 @app.route("/search/<query>")
 def search(query):
@@ -297,8 +300,9 @@ def search(query):
                                         }
                                     }
                                 })
-
-    return jsonify({'data': finish_result})
+    response = jsonify({'data': finish_result})
+    response.headers['Access-Control-Allow-Origin'] = "*"
+    return response
 
 
 # @app.route("/root/")
