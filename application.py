@@ -95,7 +95,20 @@ class StormConnect():
         if self.session:
             self.getService('auth').logoff(self.session.id)
 
-app = Flask(__name__, static_url_path='/static')
+
+class CustomFlask(Flask):
+    def __init__(self, import_name, static_path=None, static_url_path=None,
+                 static_folder='static', template_folder='templates',
+                 instance_path=None, instance_relative_config=False):
+        self.storm = None
+        super(CustomFlask, self).__init__(import_name, static_path, static_url_path, static_folder, template_folder, instance_path, instance_relative_config)
+
+    def run(self, host=None, port=None, debug=None, **options):
+        with StormConnect() as stormConnect:
+            self.storm = stormConnect
+            super(CustomFlask, self).run(host, port, debug, **options)
+
+app = CustomFlask(__name__, static_url_path='/static')
 
 @app.route("/")
 def index():
@@ -309,6 +322,5 @@ def search(query):
 #     return result
 
 # if __name__ == '__main__':
-with StormConnect() as stormConnect:
-    app.storm = stormConnect
-    app.run(host='127.0.0.1', port='8000')
+
+app.run(host='127.0.0.1', port='8000')
