@@ -81,7 +81,7 @@ if __name__ == "__main__":
         # attributes = dataService.getTypedObjectChilds(first.objectId, childrenTypes, 0, 65535, sort)
 
         dictionaryId = 'ALSFR-59dd86c7-3c08-4f4f-af03-ac9ff74c57e5'
-        query = '195492295'
+        query = '207935017'
         result = dictionaryService.searchDictionaryChildrenByLikeName(dictionaryId, query)
 
         print result

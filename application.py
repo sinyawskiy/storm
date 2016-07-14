@@ -202,8 +202,8 @@ def search(query):
                             if attr.attributeId == typeAttributeId:
                                 doc_type = attr.doubleValue or attr.integerValue or attr.stringValue
                                 doc_type_id = attr.value
-                            if attr.attributeId == titleAttributeId:
-                                title = card_item['name']#, attr.doubleValue or attr.integerValue or attr.stringValue)
+                            # if attr.attributeId == titleAttributeId:
+                        title = card_item['name']#, attr.doubleValue or attr.integerValue or attr.stringValue)
 
                         # try:
                         #     card_result[build_id]['count'] += 1
