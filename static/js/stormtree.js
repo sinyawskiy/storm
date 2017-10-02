@@ -1,7 +1,7 @@
 apex.StromTree = {
    'tree_block': '#arhive',
    //'storm_api_url': 'http://127.0.0.1:5000/search/',
-   'storm_api_url': 'http://192.168.168.56/search/',
+   'storm_api_url': 'https://192.168.168.56/search/',
    'archive_url': 'http://en-arc-01:8080/?6&cardId=',
    'opened': false
 };

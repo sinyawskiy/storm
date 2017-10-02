@@ -4,17 +4,17 @@ from service import *
 from data import *
 from flask import Flask, jsonify, render_template
 from flask.ext.cache import Cache
-from datetime import datetime
 
 class StormConnect():
     def __init__(self, *args, **kwargs):
         self.storm_is_load = False
         self.serverUrl = 'http://192.168.168.33:8080'
-        self.login = 'portal' #'portal2'
+        self.login = 'portal'
         self.password = 'portal123'
         self.session = None
         seanceType = SeanceType()
         seanceType.__setstate__({'name': u'EDITOR'})
+        #seanceType.__setstate__({'name': u'READER'})
         self.requisite = {u'crypt.key.id': u'', u'user.name': u'administrator', u'connection.type': seanceType}
         self.services = {
             'auth': AuthenticationService(self.serverUrl),
@@ -123,8 +123,6 @@ def index():
     response.headers['Access-Control-Allow-Origin'] = "*"
     return response
 
-
-
 @app.route("/search/<query>")
 @app.cache.cached(timeout=43200)
 def search(query):
@@ -142,9 +140,6 @@ def search(query):
     titleAttributeId = app.storm.get_attribute_id(u'Название проекта')
     if titleAttributeId:
         cardAttributes.append(titleAttributeId)
-    dateAttributeId = app.storm.get_attribute_id(u'Дата')
-    if dateAttributeId:
-        cardAttributes.append(dateAttributeId)
 
     result = {}
     if dictionaryId and buildAttributeId:
@@ -199,18 +194,18 @@ def search(query):
                         title=None
 
                         for attr in card.attributes:
-                            if not year:
-                                if attr.attributeId == dateAttributeId:
-                                    year = u'%d' % datetime.fromtimestamp(int(attr.value)/1000).year
-                                    year_id = year
-                                if attr.attributeId == yearAttributeId:
-                                    year = attr.doubleValue or attr.integerValue or attr.stringValue
-                                    year_id = year # attr.value
+                            # if attr.attributeId == buildAttributeId:
+                            #     build = attr.doubleValue or attr.integerValue or attr.stringValue
+                            #     build_id = attr.value
+                            if attr.attributeId == yearAttributeId:
+                                year = attr.doubleValue or attr.integerValue or attr.stringValue
+                                year_id = attr.value
                             if attr.attributeId == typeAttributeId:
                                 doc_type = attr.doubleValue or attr.integerValue or attr.stringValue
                                 doc_type_id = attr.value
                             # if attr.attributeId == titleAttributeId:
                         title = card_item['name']#, attr.doubleValue or attr.integerValue or attr.stringValue)
+
                         # try:
                         #     card_result[build_id]['count'] += 1
                         # except KeyError:
@@ -310,42 +305,6 @@ def search(query):
                                         }
                                     }
                                 })
-
-    def sort_by_type(x, y):
-        def get_item_cmp(item):
-            if item['data']['title']==u'Государственный контракт':
-                value=1
-            elif item['data']['title']==u'Договор':
-                value=2
-            elif item['data']['title']==u'Рабочий':
-                value=3
-            elif item['data']['title']==u'Исполнительный':
-                value=4
-            elif item['data']['title']==u'Распоряжение КИО (ранее КУГИ)':
-                value=5
-            else:
-                value=999
-            return value
-        return get_item_cmp(x)-get_item_cmp(y)
-
-    def sort_by_year(x, y):
-        def get_item_cmp(item):
-            result = 0
-            try:
-                result = int(item['data']['title'])
-            except TypeError:
-                pass
-            return result
-        return get_item_cmp(x)-get_item_cmp(y)
-
-    for build_item in finish_result:
-        build_item['children'].sort(sort_by_type)
-        for year_child in build_item['children']:
-            year_child['children'].sort(sort_by_year, reverse=True)
-        # for item_type in finish_result[build_item]['cards']:
-        #     print item_type
-        # sort_finish_result.append( sort(sort_by_type)
-
     response = jsonify({'data': finish_result})
     response.headers['Access-Control-Allow-Origin'] = "*"
     return response
@@ -374,5 +333,5 @@ def search(query):
 #     return result
 
 # if __name__ == '__main__':
-
+#app.run(host='127.0.0.1', port=5000, debug=True)
 app.run(host='127.0.0.1', port=5000)

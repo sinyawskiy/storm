@@ -1,4 +1,4 @@
 #!/bin/bash
 cd /web/storm/project
 source ../env/bin/activate
-/web/storm/env/bin/gunicorn application:app --timeout 120 --log-level=DEBUG
+/web/storm/env/bin/gunicorn application:app --timeout 600
